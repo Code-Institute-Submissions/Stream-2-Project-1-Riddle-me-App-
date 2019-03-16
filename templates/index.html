@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Riddle Game in Progress</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-12 text-right">
+            <a href="start-new-game" title="Start a New Game" class="btn btn-primary"><i class="fa fa-plus"></i> New Game</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-capitalize">Welcome {{ session['user'][session['current_user']] }}!</h1>
+            <p>Answer as much questions you can to win this game.</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12 col-md-8">
+             {% if question|length > session['score'][session['current_user']] %}
+
+            <form method="post" action="check-answer">
+                <div class="form-group">
+                    <label for="question">{{ question[session['score'][session['current_user']]][0] | safe }}</label>
+                    <input autofocus autocomplete="off" type="number" class="form-control" id="question" name="answer" placeholder="Enter answer. Only use numbers" required/>
+                </div>
+
+                <input type="submit" value="Submit Answer" class="btn btn-outline-primary"/>
+            </form>
+
+                {% if session['last_answer'] %}
+                     <div class="last_answer text-center">
+                         <p><i class="fa fa-backward"></i> Last Answer</p>
+                        <h4>{{ session['last_answer']}}</h4>
+                     </div>
+                {% endif %}
+
+            {% else %}
+
+            <h1>Congratulations! Game Over</h1>
+
+            {% endif %}
+        </div>
+        <div class="col-md-3 offset-md-1 col-sm-12">
+            <div class="score text-center">
+                <i class="fa fa-grin-stars"></i>
+                Your Score
+                <h4>{{ session['score'][session['current_user']] }}</h4>
+            </div>
+
+            <div class="score leaders text-center">
+                <i class="fa fa-users"></i>
+
+                Leader Board
+
+                <table>
+                    <tr>
+                        <th>User</th>
+                        <th>Score</th>
+                    </tr>
+                    {%
+                            for leader in session['leaders'] %}
+                    <tr>
+                        <td>{{ leader[1] }}</td>
+                        <td>{{ leader[0] }}</td>
+                    </tr>
+
+
+                    {%
+                            endfor
+                            %}
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="application/javascript" src="{{ url_for('static',filename='js/bootstrap.js') }}"></script>
+</body>
+</html>

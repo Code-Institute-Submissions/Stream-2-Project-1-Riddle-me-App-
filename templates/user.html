@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start New Game - Enter User Name </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"/>
+    <style>
+        body {
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 text-center">
+            <h1 class="text-capitalize">Start a new Game</h1>
+            <p>Enter your username below to start a new game.</p>
+
+            <form method="post" action="save_user">
+
+                <div class="form-group">
+                    <label for="name">Username</label>
+                    <input class="form-control" id="name" name="username" placeholder="Enter your name here" required/>
+                </div>
+
+                <input type="submit" value="Submit" class="btn btn-outline-primary"/>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript" src="{{ url_for('static',filename='js/bootstrap.js') }}"></script>
+</body>
+</html>

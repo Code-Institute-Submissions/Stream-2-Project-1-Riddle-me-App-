@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900');
+
+body {
+            background: #FF8008;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #153d97, #d91972);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #153d97, #d91972); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    padding: 20px 0;
+
+}
+
+h1 {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+p {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+}
+
+label {
+    font-weight: bold;
+    color: #fff;
+}
+.btn-outline-primary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff;
+    background: #000;
+    border-color: #000;
+}
+.btn-primary {
+    color: #de0f71;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+form {
+    margin: 50px 0;
+}
+
+.last_answer i {
+    font-size: 40px;
+    display: block;
+}
+.last_answer {
+    margin-top: 70px;
+}
+
+.last_answer h4 {
+    color: white;
+    font-size: 20px;
+}
+
+
+.score {
+    border: 1px solid #fff;
+    padding: 20px;
+    border-radius: 9px;
+    margin-bottom: 30px;
+}
+
+.score i {
+    font-size: 40px;
+    display: block;
+}
+
+
+.score h4 {
+    color: white;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.leaders table{
+    width:100%;
+}
+.leaders table tr {
+    border-bottom: 1px solid #ccc;
+}
